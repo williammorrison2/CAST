@@ -31,6 +31,7 @@ pipeline {
     post {
         always {
             echo "${DATE}-${PR}-${COMMIT}"
+            sh 'ssh root@c650mnp05-ug "/test/archive/archive_input.sh ${DATE}-${PR}-${COMMIT}"'
         }
     }
 }
