@@ -30,7 +30,7 @@ pipeline {
     }
     post {
         always {
-            echo '${DATE}-PR-${PR}-${COMMIT}'
+            echo "${DATE}-PR-${PR}-${COMMIT}"
         }
     }
 }
