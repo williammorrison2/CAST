@@ -1,9 +1,8 @@
 pipeline {
     environment {
         COMMIT="${env.GIT_COMMIT.take(10)}"
-        //DATE=sh 'echo 20$(date +%y-%m-%d)'
-        DATE = sh (script: 'echo echo 20$(date +%y-%m-%d)', returnStdout: true).trim()  
-        PR="${PULL_REQUEST}"
+        DATE = sh (script: 'echo 20$(date +%y-%m-%d)', returnStdout: true).trim()  
+        PR="${env.BRANCH_NAME}"
     }
     
     agent any
@@ -31,7 +30,7 @@ pipeline {
     }
     post {
         always {
-            echo "${DATE}-PR-${PR}-${COMMIT}"
+            echo "${DATE}-${PR}-${COMMIT}"
         }
     }
 }
