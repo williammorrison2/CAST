@@ -1,7 +1,8 @@
 pipeline {
     environment {
         COMMIT="${env.GIT_COMMIT.take(10)}"
-        DATE=sh 'echo 20$(date +%y-%m-%d)'
+        //DATE=sh 'echo 20$(date +%y-%m-%d)'
+        DATE = sh (script: 'echo echo 20$(date +%y-%m-%d)', returnStdout: true).trim()  
         PR="${PULL_REQUEST}"
     }
     
