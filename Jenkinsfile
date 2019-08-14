@@ -24,9 +24,9 @@ pipeline {
     }
     post {
         always {
-            COMMIT = env.GIT_COMMIT.take(10)
-            DATE = sh 'echo 20$(date +%y-%m-%d)'
-            PR = ${PULL_REQUEST}
+            COMMIT=${env.GIT_COMMIT.take(10)}
+            DATE=sh 'echo 20$(date +%y-%m-%d)'
+            PR=${PULL_REQUEST}
             echo '${DATE}-PR-${PR}-${COMMIT}'
         }
     }
