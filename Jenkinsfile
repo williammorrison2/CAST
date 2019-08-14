@@ -1,4 +1,10 @@
 pipeline {
+    environment {
+        COMMIT=${env.GIT_COMMIT.take(10)}
+        DATE=sh 'echo 20$(date +%y-%m-%d)'
+        PR=${PULL_REQUEST}
+    }
+    
     agent any
 
     stages {
@@ -24,12 +30,7 @@ pipeline {
     }
     post {
         always {
-            steps {
-                COMMIT=${env.GIT_COMMIT.take(10)}
-                DATE=sh 'echo 20$(date +%y-%m-%d)'
-                PR=${PULL_REQUEST}
-                echo '${DATE}-PR-${PR}-${COMMIT}'
-            }
+            echo '${DATE}-PR-${PR}-${COMMIT}'
         }
     }
 }
