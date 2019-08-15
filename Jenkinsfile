@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                //sh 'ssh wcmorris@c650f03p41-ug "/u/wcmorris/CI/build.sh"'
+                sh 'ssh wcmorris@c650f03p41-ug "/u/wcmorris/CI/build.sh"'
                 //sh 'ssh root@c650mnp05-ug "/u/wcmorris/CI/install.sh"'
             }
         }
