@@ -9,7 +9,7 @@ pipeline {
     agent { label 'csm_fvt_regression' }
     options {
         lock resource: 'myResource'
-        timeout(time: 1, unit: 'MINUTE')
+        timeout(time: 1, unit: 'MINUTES')
     }
     stages {
         stage('Build') {
