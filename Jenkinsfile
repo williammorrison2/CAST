@@ -5,7 +5,8 @@ pipeline {
         PR="${env.BRANCH_NAME}"
     }
     
-    agent any
+    //agent any
+    agent { label 'csm_fvt_regression' }
     options {
         lock resource: 'myResource'
     }
