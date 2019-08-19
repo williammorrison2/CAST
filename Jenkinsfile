@@ -1,7 +1,7 @@
 pipeline {
     environment {
         COMMIT="${env.GIT_COMMIT.take(10)}"
-        DATE = sh (script: 'echo 20$(date +%y-%m-%d)', returnStdout: true).trim()  
+        DATE = sh (script: 'echo 20$(date +%y-%m-%d)', returnStdout: true).trim()
         PR="${env.BRANCH_NAME}"
     }
     
